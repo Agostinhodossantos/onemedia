@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "931735182809",
+    "project_id": "one-media-8734c",
+    "storage_bucket": "one-media-8734c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:931735182809:android:a7fd40d783d3821e328dc8",
+        "android_client_info": {
+          "package_name": "one.media"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "931735182809-jm92fp630s2tmb94jr40b7io3s3375pf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt0qhspLhpzm2_meDSKPkuvjHGs-NsHMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "931735182809-jm92fp630s2tmb94jr40b7io3s3375pf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

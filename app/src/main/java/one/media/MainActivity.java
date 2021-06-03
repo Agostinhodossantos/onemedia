@@ -1,5 +1,6 @@
 package one.media;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -8,6 +9,8 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
@@ -23,6 +26,8 @@ import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
 import one.media.model.ImageAds;
+import one.media.model.Product;
+import one.media.pager.RvProduct;
 import one.media.pager.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     final long PERIOD_MS = 6000; // time in milliseconds between successive task executions.
     List<ImageAds> imageAdsList = new ArrayList<>();
 
+    private RecyclerView rv_product;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,19 +51,33 @@ public class MainActivity extends AppCompatActivity {
 
         initUI();
         initAds();
+        initRv();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this,PublishActivity.class );
+                startActivity(intent);
             }
         });
     }
 
+    private void initRv() {
+
+        List<Product> productList = new ArrayList<>();
+        productList.add(new Product("123", "Cebola", "122", 20));
+        productList.add(new Product("123", "Cebola", "122", 620));
+        productList.add(new Product("123", "Cebola", "122", 730));
+
+        RvProduct rvProduct = new RvProduct(this, productList);
+        rv_product.setLayoutManager(new LinearLayoutManager(this));
+        rv_product.setAdapter(rvProduct);
+    }
+
     private void initUI() {
         viewPager = findViewById(R.id.vp_ads);
+        rv_product = findViewById(R.id.rv_product);
     }
 
     @Override
